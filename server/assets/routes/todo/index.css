@@ -1,0 +1,119 @@
+.todo-page h1 {
+  margin: 0 0 0.75rem;
+  font-size: clamp(2rem, 4vw, 3rem);
+}
+
+.section-title {
+  margin: 0 0 0.85rem;
+  font-size: 1rem;
+  color: #334155;
+}
+
+.todo-entry {
+  margin-bottom: 1.5rem;
+}
+
+.todo-form {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 0.75rem;
+}
+
+.todo-form input {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 12px;
+  background: #fff;
+}
+
+.todo-form button,
+.todo-actions button {
+  padding: 0.85rem 1rem;
+  border: 0;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+.todo-form button {
+  background: #0f766e;
+  color: #f0fdfa;
+}
+
+.empty-state {
+  margin: 0;
+  padding: 1rem 1.25rem;
+  border-radius: 14px;
+  background: #f8fafc;
+  color: #475569;
+}
+
+.todo-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.todo-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.9rem 1rem;
+  border-radius: 14px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+}
+
+.todo-item.is-complete {
+  background: #ecfdf5;
+  border-color: #6ee7b7;
+}
+
+.todo-copy {
+  display: grid;
+  gap: 0.25rem;
+}
+
+.todo-title {
+  font-weight: 600;
+}
+
+.todo-item.is-complete .todo-title {
+  color: #065f46;
+  text-decoration: line-through;
+}
+
+.todo-status {
+  font-size: 0.875rem;
+  color: #475569;
+}
+
+.todo-actions {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.secondary-action {
+  background: #0f766e;
+  color: #f0fdfa;
+}
+
+.danger-action {
+  background: #be123c;
+  color: #fff1f2;
+}
+
+@media (max-width: 640px) {
+  .todo-form {
+    grid-template-columns: 1fr;
+  }
+
+  .todo-item {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}

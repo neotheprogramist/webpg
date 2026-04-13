@@ -1,0 +1,45 @@
+{% extends "layouts/app.html" %}
+
+{% block head %}
+<title>Todo | Native Files App</title>
+<meta name="description" content="Todo list page rendered from SQLite data." />
+<link rel="stylesheet" href="/assets/routes/todo/index.css" />
+{% endblock %}
+
+{% block content %}
+<article class="page-card todo-page" data-page="todo" aria-labelledby="todo-title">
+  <header class="page-header">
+    <h1 id="todo-title">Todo List</h1>
+    <p class="page-copy">SQLite-backed items are rendered on the server with Askama templates.</p>
+  </header>
+
+  <section class="todo-entry" data-ui="todo-create" aria-label="Add todo item">
+    <form class="todo-form" method="post" action="/todo/">
+      <label class="visually-hidden" for="todo-title-input">Task title</label>
+      <input
+        id="todo-title-input"
+        name="title"
+        type="text"
+        placeholder="Add a task"
+        autocomplete="off"
+        required
+      />
+      <button type="submit">Add</button>
+    </form>
+  </section>
+
+  <section class="todo-items" aria-labelledby="todo-items-title">
+    <h2 id="todo-items-title" class="section-title">Items</h2>
+
+    {% if todos.is_empty() %}
+    <p class="empty-state">No tasks yet. Add one with the form above.</p>
+    {% else %}
+    <ul class="todo-list" data-ui="todo-list" aria-live="polite">
+      {% for todo in todos %}
+      {% include "components/todo_item.html" %}
+      {% endfor %}
+    </ul>
+    {% endif %}
+  </section>
+</article>
+{% endblock %}

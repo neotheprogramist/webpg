@@ -1,0 +1,41 @@
+.home-page {
+  text-align: center;
+}
+
+.home-page h1 {
+  margin: 0 0 0.75rem;
+  font-size: clamp(2rem, 4vw, 3rem);
+}
+
+.counter-panel {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.count {
+  margin: 0;
+  font-size: 4rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.controls button {
+  min-width: 88px;
+  padding: 0.8rem 1rem;
+  border: 0;
+  border-radius: 12px;
+  cursor: pointer;
+  background: #111827;
+  color: #f8fafc;
+}
+
+.controls button:hover {
+  background: #1f2937;
+}

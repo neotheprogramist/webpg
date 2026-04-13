@@ -1,0 +1,38 @@
+[workspace]
+members = ["server", "counter", "chat"]
+resolver = "3"
+
+[workspace.package]
+version = "0.1.0"
+edition = "2024"
+
+[workspace.dependencies]
+anyhow = "1.0.100"
+askama = "0.15.6"
+chrono = "0.4.42"
+js-sys = "0.3.95"
+pem = "3.0.6"
+rcgen = "0.14.5"
+rustls = { version = "0.23.38", default-features = false, features = ["logging", "ring", "std"] }
+salvo = { version = "0.91.1", features = ["affix-state", "quinn", "serve-static", "rustls", "test"] }
+serde = { version = "1.0.228", features = ["derive"] }
+serde_json = "1.0.149"
+sha2 = "0.11.0"
+sqlx = { version = "0.8.6", features = ["runtime-tokio-rustls", "sqlite"] }
+thiserror = "2.0.18"
+tokio = { version = "1.51.1", features = ["full"] }
+tracing = "0.1.44"
+tracing-subscriber = "0.3.23"
+wasm-bindgen = "0.2.118"
+wasm-bindgen-futures = "0.4.68"
+web-sys = { version = "0.3.95", features = [
+    "WebTransport",
+    "WebTransportBidirectionalStream",
+    "WebTransportReceiveStream",
+    "WebTransportSendStream",
+    "ReadableStream",
+    "ReadableStreamDefaultReader",
+    "ReadableStreamReadResult",
+    "WritableStream",
+    "WritableStreamDefaultWriter",
+] }

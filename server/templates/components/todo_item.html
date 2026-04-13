@@ -1,0 +1,14 @@
+<li class="todo-item{% if todo.completed %} is-complete{% endif %}" data-ui="todo-item" data-todo-id="{{ todo.id }}">
+  <div class="todo-copy">
+    <span class="todo-title">{{ todo.title }}</span>
+    <span class="todo-status">{% if todo.completed %}Completed{% else %}Active{% endif %}</span>
+  </div>
+  <div class="todo-actions">
+    <form method="post" action="/todo/{{ todo.id }}/toggle">
+      <button type="submit" class="secondary-action" data-action="toggle">{% if todo.completed %}Mark active{% else %}Mark done{% endif %}</button>
+    </form>
+    <form method="post" action="/todo/{{ todo.id }}/delete">
+      <button type="submit" class="danger-action" data-action="delete">Delete</button>
+    </form>
+  </div>
+</li>

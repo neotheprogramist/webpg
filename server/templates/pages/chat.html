@@ -1,0 +1,52 @@
+{% extends "layouts/app.html" %}
+
+{% block head %}
+<title>Chat | Native Files App</title>
+<meta name="description" content="Simple WebTransport chat backed by SQLite history." />
+<link rel="stylesheet" href="/assets/routes/chat/index.css" />
+{% endblock %}
+
+{% block content %}
+<article
+  class="page-card chat-page"
+  data-page="chat"
+  data-ui="chat"
+  data-cert-hash="{{ cert_fingerprint_hex }}"
+  aria-labelledby="chat-title"
+>
+  <header class="page-header">
+    <h1 id="chat-title">WebTransport chat</h1>
+    <p class="page-copy">Server-rendered history at load time, live updates over WebTransport afterward.</p>
+  </header>
+
+  <section class="chat-panel">
+    <div class="chat-history-panel">
+      <ul class="chat-history" data-role="history" aria-live="polite">
+        {% for message in messages %}
+        {% include "components/chat_message.html" %}
+        {% endfor %}
+      </ul>
+      <p class="empty-state {% if messages.is_empty() %}{% else %}is-hidden{% endif %}" data-role="empty-state">
+        No chat messages yet. Open this page in two windows and send the first one.
+      </p>
+    </div>
+
+    <form class="chat-composer" data-role="composer">
+      <label class="visually-hidden" for="chat-message-input">Chat message</label>
+      <input
+        id="chat-message-input"
+        name="message"
+        type="text"
+        placeholder="Type a message"
+        autocomplete="off"
+        required
+      />
+      <button type="submit">Send</button>
+    </form>
+  </section>
+</article>
+{% endblock %}
+
+{% block scripts %}
+<script type="module" src="/assets/routes/chat/index.js"></script>
+{% endblock %}

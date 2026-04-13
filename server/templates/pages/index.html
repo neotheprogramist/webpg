@@ -1,0 +1,28 @@
+{% extends "layouts/app.html" %}
+
+{% block head %}
+<title>Home | Native Files App</title>
+<meta name="description" content="Simple counter page rendered by Axum and Askama." />
+<link rel="stylesheet" href="/assets/routes/index/index.css" />
+{% endblock %}
+
+{% block content %}
+<article class="page-card home-page" data-page="home" aria-labelledby="home-title">
+  <header class="page-header">
+    <h1 id="home-title">Counter</h1>
+    <p class="page-copy">Axum serves the page shell while Rust compiled to WebAssembly drives the counter logic.</p>
+  </header>
+  <section class="counter-panel" data-ui="counter" aria-label="Counter controls">
+    <p class="count" data-role="value" aria-live="polite">0</p>
+    <div class="controls">
+      <button type="button" data-action="decrement">-</button>
+      <button type="button" data-action="reset">Reset</button>
+      <button type="button" data-action="increment">+</button>
+    </div>
+  </section>
+</article>
+{% endblock %}
+
+{% block scripts %}
+<script type="module" src="/assets/routes/index/index.js"></script>
+{% endblock %}
